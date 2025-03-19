@@ -1,4 +1,4 @@
-set(data_types_LIB_Name UAV::data_types)
+set(data_types_LIB_Name data_types)
 
 set(data_types_LIB_Headers
     include/${data_types_LIB_Name}/GPS_Coordinates.hpp

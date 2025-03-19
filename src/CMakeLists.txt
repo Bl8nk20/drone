@@ -1,3 +1,4 @@
+add_subdirectory(data_types)
 add_subdirectory(sensor)
 add_subdirectory(motor)
 add_subdirectory(filter)
