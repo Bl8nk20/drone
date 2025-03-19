@@ -1,5 +1,5 @@
-#ifndef UAV_SOFTWARE_IDATA_GPS_COORDINATES_H
-#define UAV_SOFTWARE_IDATA_GPS_COORDINATES_H
+#ifndef UAV_SOFTWARE_IDATA_GPS_H
+#define UAV_SOFTWARE_IDATA_GPS_H
 
 #include <array>
 #include <string>
