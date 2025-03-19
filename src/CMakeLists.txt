@@ -1,0 +1,5 @@
+add_subdirectory(sensor)
+add_subdirectory(motor)
+add_subdirectory(filter)
+add_subdirectory(calibration)
+add_subdirectory(main_logic)
