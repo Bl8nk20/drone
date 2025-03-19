@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Seite-1" id="ypyV-tqG9iYqlbsBcxX9">
-        <mxGraphModel dx="2265" dy="2171" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1625" dy="1736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -160,7 +160,7 @@
                 <mxCell id="d5j1PxIbvWyg9LzeXN8p-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=none;endFill=0;" parent="1" source="d5j1PxIbvWyg9LzeXN8p-74" target="d5j1PxIbvWyg9LzeXN8p-22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;curved=0;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;" edge="1" parent="1" source="d5j1PxIbvWyg9LzeXN8p-74" target="d5j1PxIbvWyg9LzeXN8p-5">
+                <mxCell id="7" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;curved=0;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;" parent="1" source="d5j1PxIbvWyg9LzeXN8p-74" target="d5j1PxIbvWyg9LzeXN8p-5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-90" y="-100"/>
@@ -282,7 +282,7 @@
                 <mxCell id="4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="2" vertex="1">
                     <mxGeometry y="70" width="430" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="+ GPS_Coordinates(Lat : double, Lon : double, height : double)&#xa;+ GPS_Coordinates(Lat : double, Lon : double, barometric_Pressure : double)&#xa;+ GPS_Coordinates(Lat : string, Lon : string, height : double)&#xa;+ GPS_Coordinates(Lat : string, Lon : string, barometric_Pressure : double)&#xa;+ get_Lat_Lon_Decimal() : double[]&#xa;+ get_Lat_Lon_Degree() : string[]&#xa;+ set_Lat_Lon_Decimal(Lat_Lon_Decimal : double[]) : void&#xa;+ set_Lat_Lon_Degree(Lat_Lon_Degree : string[]) : void&#xa;- convert_to_Barometric_Pressure( height : double) : double&#xa;- convert_from_Barometric_Pressure(Barometric_Pressure : double) : double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
+                <mxCell id="5" value="+ GPS_Coordinates(Lat : double, Lon : double, height : double)&#xa;+ GPS_Coordinates(Lat : string, Lon : string, height : double)&#xa;+ get_Lat_Lon_Decimal() : double[]&#xa;+ get_Lat_Lon_Degree() : string[]&#xa;+ get_Barometric_Pressure() : double&#xa;+ get_Height() : double&#xa;+ set_Lat_Lon_Decimal(Lat_Lon_Decimal : double[]) : void&#xa;+ set_Lat_Lon_Degree(Lat_Lon_Degree : string[]) : void&#xa;+ set_Height(height : double) : void&#xa;- convert_to_Barometric_Pressure( height : double) : double&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="78" width="430" height="152" as="geometry"/>
                 </mxCell>
             </root>
