@@ -17,17 +17,14 @@ message("CXX Standard: ${CMAKE_CXX_STANDARD}")
 message("CMAKE_CURRENT_BINARY_DIR   " ${CMAKE_CURRENT_BINARY_DIR}/build/)
 message("CMAKE_SOURCE_DIR:          " ${CMAKE_SOURCE_DIR})
 
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-    # adding options like testing and so
-    option(ENABLE_TESTING "Enable a Unit Testing Build" OFF)
+# adding options like testing and so
+option(ENABLE_TESTING "Enable a Unit Testing Build" ON)
 
+# set cmake files
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+include(AddGitSubmodule)
+include(GitFetchRepos)
+include(Docs)
 
-    # set cmake files
-    set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
-    include(AddGitSubmodule)
-    include(GitFetchRepos)
-    include(Docs)
-
-endif()
 
 add_subdirectory(src)
