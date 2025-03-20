@@ -8,14 +8,14 @@ namespace UAV::Software::Filter{
     template <typename T> 
     class IFilterTemplate{
         public:
-        IFilterTemplate(const std::string& t_Filename);
-        virtual std::array<T, 3> get_FilteredData() = 0 const;
-        void startup() const;
-        void shutdown() const;
-        void tune_filter() const;
+        IFilterTemplate();
+        /**
+         * @brief 
+         * 
+         */
 
-        private:
-        static constexpr std::string FilterFilename;
+        protected:
+        virtual void tune_filter() = 0 const;
     };
 } // namespace UAV::Software::Filter
 

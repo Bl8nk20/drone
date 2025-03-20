@@ -1,12 +1,12 @@
-set(Lib_NAME FilterTemplate)
+set(FILTER_Lib_NAME FilterTemplate)
 
-set(LIB_Headers
-    include/${Lib_NAME}/IFilterTemplate.hpp
+set(FILTER_LIB_Headers
+    include/${FILTER_Lib_NAME}/IFilterTemplate.hpp
 )
 
-add_library(${Lib_NAME}
+add_library(${FILTER_Lib_NAME}
         INTERFACE
-        ${LIB_Headers}
+        ${FILTER_LIB_Headers}
 )
 
-target_include_directories(${Lib_NAME} INTERFACE include)
+target_include_directories(${FILTER_Lib_NAME} INTERFACE include)
