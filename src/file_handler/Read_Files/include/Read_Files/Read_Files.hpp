@@ -2,8 +2,9 @@
 #define UAV_SOFTWARE_FILE_READER_H
 
 #include <string>
-#include <array>
+#include <map>
 #include <fstream>
+#include <nlohmann/json.hpp>
 
 namespace UAV::Software::File_Handler{
     /**
@@ -24,7 +25,7 @@ namespace UAV::Software::File_Handler{
          * 
          * @return std::array<std::string, 3> 
          */
-        std::array<std::string, 3> get_reading() const;
+        std::map<std::string, double> get_reading() const;
         
         private:
         const std::string FileName;
@@ -34,7 +35,7 @@ namespace UAV::Software::File_Handler{
          * 
          * @return std::array<std::string, 3> 
          */
-        std::array<std::string, 3> read_contents() const;
+        std::map<std::string, double> read_contents() const;
     };
 } // namespace UAV::Software::File_Handler
 

@@ -1,12 +1,19 @@
-set(data_types_LIB_Name data_types)
+set(file_writer_LIB_Name Write_Files)
 
-set(data_types_LIB_Headers
-    include/${data_types_LIB_Name}/GPS_Coordinates.hpp
+set(file_writer_LIB_Headers
+    include/${file_writer_LIB_Name}/Write_Files.hpp
 )
 
-add_library(${data_types_LIB_Name}
-        INTERFACE
-        ${data_types_LIB_Headers}
+set(file_writer_LIB_Sources
+    Write_Files.cpp
 )
 
-target_include_directories(${data_types_LIB_Name} INTERFACE include)
+add_library(${file_writer_LIB_Name}
+        STATIC
+        ${file_writer_LIB_Headers}
+        ${file_writer_LIB_Sources})
+
+target_include_directories(${file_writer_LIB_Name} INTERFACE include)
+
+target_link_libraries(${file_writer_LIB_Name} PRIVATE
+    nlohmann_json::nlohmann_json)
