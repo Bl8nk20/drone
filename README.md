@@ -34,7 +34,7 @@ $$u(t) = K_p * e(t) + K_I *\int_1^4 e(t) dt + K_D * \frac{de(t)}{dt}$$
 
 1. $K_I = 0; K_D = 0$
 2. $K_P$ increase stepwise -> (critical increasing $K_U$)
-3. Swingingperiod $T_U$ 
+3. Swingingperiod $T_U$
 4. PID-Parameter calculating:  
     * $K_P = 0.6 * K_U$
     * $K_I = 2 * \frac{K_P}{T_U}$
