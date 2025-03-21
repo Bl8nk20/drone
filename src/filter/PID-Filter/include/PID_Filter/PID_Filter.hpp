@@ -40,33 +40,22 @@ namespace UAV::Software::Filter{
         void tune_filter() override;
 
         /**
-         * @brief 
-         * 
-         * @param target_value 
-         * @param current_value 
-         */
-        void update_et(const double& target_value, const double& current_value) const;
-
-        /**
-         * @brief 
-         * 
-         * @param target_value 
-         * @param current_value 
-         */
-        void update_ut(const double& target_value, const double& current_value) const;
-        /**
          * @brief Get the ut object
          * 
+         * @param target_value 
+         * @param current_value 
          * @return double 
          */
-        double get_ut() const;
+        double get_ut(const double& target_value, const double& current_value) const;
 
         /**
          * @brief Get the et object
          * 
+         * @param target_value 
+         * @param current_value 
          * @return double 
          */
-        double get_et() const;
+        double get_last_et(const double& target_value, const double& current_value) const;
 
         /**
          * @brief Get the last params object
@@ -78,9 +67,7 @@ namespace UAV::Software::Filter{
         private:
         const std::map<std::string, double> m_last_flight_values;
         mutable double u_t;
-        mutable double e_t;
-        mutable double K_i;
-        mutable double K_d;
+        mutable std::vector<double> e_t;
 
         /**
          * @brief 
@@ -92,19 +79,28 @@ namespace UAV::Software::Filter{
          * @brief 
          * 
          */
-        void calculate_et(const double& target_value, const double& current_value) const;
+        void calculate_last_et(const double& target_value, const double& current_value) const;
 
         /**
          * @brief 
          * 
+         * @return double 
          */
-        void calculate_Ki() const;
+        double calculate_P_part() const;
 
         /**
          * @brief 
          * 
+         * @return double 
          */
-        void calculate_Kd() const;
+        double calculate_I_part() const;
+
+        /**
+         * @brief 
+         * 
+         * @return double 
+         */
+        double calculate_D_part() const;
     };
 }
 
