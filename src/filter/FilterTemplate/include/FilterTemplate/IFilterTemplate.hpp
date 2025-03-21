@@ -9,13 +9,13 @@ namespace UAV::Software::Filter{
     class IFilterTemplate{
         public:
         IFilterTemplate();
+
+        protected:
         /**
          * @brief 
          * 
          */
-
-        protected:
-        virtual void tune_filter() = 0 const;
+        void virtual tune_filter();
     };
 } // namespace UAV::Software::Filter
 

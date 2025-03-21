@@ -29,7 +29,7 @@ std::map<std::string, double> PID_Filter::get_last_params(){
 /*--------          Tuning        ------- */
 
 void PID_Filter::tune_filter(){
-
+    // Manual Tuning, like 
 }
 
 /*--------          Calculations         ------- */
@@ -57,9 +57,10 @@ double PID_Filter::calculate_D_part() const{
     double delt_time = 0.5;
     std::vector<double> diff_et;
     for(std::size_t i = 0; i < e_t.size(); i++){
-        diff_et[i] = (e_t[i+1] - e_t[i])/delt_time
+        diff_et[i] = (e_t[i+1] - e_t[i])/delt_time;
     }    
-
+    double D_part = T_d * diff_et[-1];
+    return D_part;
 }
 
 void PID_Filter::calculate_ut(const double& target_value, const double& current_value) const{
