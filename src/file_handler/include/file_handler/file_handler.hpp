@@ -1,6 +1,8 @@
 #ifndef UAV_SOFTWARE_FILE_HANDLER_H
 #define UAV_SOFTWARE_FILE_HANDLER_H
 
+#pragma once
+
 #include <string>
 #include <map>
 #include <iostream>

@@ -1,0 +1,7 @@
+{
+    "PiD_Filter_Settings" : {
+        "proportional" : 0,
+        "integral" : 0,
+        "derivative" : 0
+    }
+}

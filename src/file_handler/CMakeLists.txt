@@ -5,7 +5,7 @@ set(file_handler_LIB_Headers
 )
 
 set(file_handler_LIB_Sources
-    file_handler.cpp
+    File_Handler.cpp
 )
 
 add_library(${file_handler_LIB_Name} 
