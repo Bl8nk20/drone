@@ -115,8 +115,8 @@ if(ENABLE_TESTING)
     add_subdirectory(tests)
 endif()
 
-# INSTALL TARGETS
 
+# INSTALL TARGETS
 
 #install(
 #    TARGETS ${EXECUTABLE_NAME}
