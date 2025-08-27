@@ -1,12 +1,5 @@
-mod Point;
+mod coordinates;
 
-use crate::Point::Points;
+use crate::coordinates::point::Points;
 
-fn main(){
-    let np = Points::new(21.1, 22.11);
-
-    let f = np.distance();
-
-    println!("{:?}", np);
-    println!("{}", f);
-}
+fn main() {}
