@@ -1,14 +1,12 @@
-struct Point{
-    x: f32,
-    y:f32
-}
-impl Point{
-    fn new(x:f32, y:f32) -> Self{ Self { x: x, y: y }}
-    fn distance(&self) ->f32{
-        return ((self.x.powi(2) + self.y.powi(2)) as f32).sqrt();
-    }
-}
+mod Point;
+
+use crate::Point::Points;
 
 fn main(){
+    let np = Points::new(21.1, 22.11);
 
+    let f = np.distance();
+
+    println!("{:?}", np);
+    println!("{}", f);
 }
