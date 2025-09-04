@@ -1,19 +1,24 @@
 /* 
 Brainstorming:
-Coordinates as a 3 long Array: [x, y, z]
-Enum for SensorTypes = [IMU, Gyro, Baro, Magnetometer, etc]
+GENERAL:
+Coordinates as a 3 long Array: [x, y, z] -> float64 ? or float32
+Logging with file
+
+Design Patterns:
+Singleton -> Espacially for Sensors and Filter
+
+STRUCTS:
 Struct for SensorDriver
 Structs for Sensors (IMU, Gyro, GPS, Baro?)
  Varibales:
  * pins: Array[String]
  * type: Enum
- * Value: Enum
- * unit: Option<String>
  * lastVal: T
  * currentVal: T
  * timestamp: Systemtime
  * is_active: bool
  * update_rate_hz: f32
+ * callibrated: bool
  Methods:
  * new() -> Setting variables, creating the Object
  * update() -> Reading from the Sensor
@@ -22,11 +27,14 @@ Structs for Sensors (IMU, Gyro, GPS, Baro?)
  * is_active() -> Returning, whether if the sensor is active or not
  * activate() -> Switch on the sensor
  * deactivate() -> switch off the sensor
-Struct for Engine:
- * 
+ * callibrate() -> callibrating the sensor
+
 Struct for Filtering & Adjusting:
  * PiD-Adjusting
  * Kallman-Filter
  */
+
+mod components;
+mod motor_driver;
 
 fn main() {}
