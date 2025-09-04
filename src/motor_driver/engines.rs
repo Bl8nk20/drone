@@ -12,6 +12,16 @@ Struct for Engine:
  * update_target() -> updating only the target_value, e.g. when UAV reached the desired rpm
  */
 
- pub struct Engine{
-    
- }
+use structures::map::Dictionary;
+use crate::components::Orientation;
+
+pub struct Engine{
+    pinout:[String; 5],
+    orientation: Orientation,
+    values: Option<Dictionary<i32>>,
+}
+impl Engine{
+    pub const fn new(pins: [String; 5], engine_orientation: Orientation, value_dict: Option<Dictionary<i32>>) -> Self{
+        return Self{ pinout:pins, orientation: engine_orientation, values:value_dict};
+    }
+}
