@@ -1,1 +1,1 @@
-pub mod SensorDriver;
+pub mod sensor;
