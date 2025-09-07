@@ -5,6 +5,7 @@ Struct for Engine:
  * orientation: Enum
  Methods:
  * get() -> Returning the Current_Val, if available
+
  * is_active() -> Returning, whether if the sensor is active or not
  * activate() -> Switch on the sensor
  * deactivate() -> switch off the sensor
@@ -26,8 +27,12 @@ impl Engine{
         return Self{ pinout:pins, orientation: engine_orientation, values:value_dict};
     }
     // returning the current rpm-parameters
-    pub fn get_values(&self) -> i32{
-        return self.values.get("current_rpm").copied().unwrap_or(0);
+    pub fn get_values(&self) -> &i32{
+        return self.values.get("current_rpm").unwrap_or(&0);
+    }
+
+    pub fn get_pins(&self) -> &[String; 5] {
+        return  &self.pinout;
     }
 
     // Something like that to update the new value at the Key!
@@ -36,7 +41,7 @@ impl Engine{
         self.values.insert(String::from("target_rpm"), new_target);
     }
 
-    pub fn update_current(mut self, current_rpm : i32){
+    fn update_current(mut self, current_rpm : i32){
         self.values.insert(String::from("target_rpm"), current_rpm);
     }
 }
