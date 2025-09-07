@@ -1,3 +1,5 @@
+use std::time::SystemTime;
+
 /*
 Structs for Sensors (IMU, Gyro, GPS, Baro?)
  Varibales:
@@ -19,7 +21,19 @@ Structs for Sensors (IMU, Gyro, GPS, Baro?)
  * deactivate() -> switch off the sensor
  * callibrate() -> callibrating the sensor
 */
+use crate::components::SensorType;
+
 
 pub struct Sensor{
-    
+    pinout:[String; 5],
+    typ: SensorType,
+    last_val: f32,
+    current_val:f32,
+    timestamp: SystemTime,
+    is_active: bool,
+    update_rate_hz: f32,
+    callibrated:bool
+}
+impl Sensor{
+
 }

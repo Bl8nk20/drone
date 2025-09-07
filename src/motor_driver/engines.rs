@@ -12,31 +12,31 @@ Struct for Engine:
  * update_current() -> updating the current_value
  */
 
-use structures::map::Dictionary;
+use std::collections::HashMap;
 use crate::components::Orientation;
 
 pub struct Engine{
     pinout:[String; 5],
     orientation: Orientation,
-    values: Option<Dictionary<i32>>,
+    values: HashMap<String, i32>,
 }
 impl Engine{
     // build a new Engine- Object
-    pub const fn new(pins: [String; 5], engine_orientation: Orientation, value_dict: Option<Dictionary<i32>>) -> Self{
+    pub const fn new(pins: [String; 5], engine_orientation: Orientation, value_dict:HashMap<String, i32> ) -> Self{
         return Self{ pinout:pins, orientation: engine_orientation, values:value_dict};
     }
     // returning the current rpm-parameters
-    pub const fn getValues(&self) -> &Option<Dictionary<i32>>{
-        return &self.values;
+    pub fn get_values(&self) -> i32{
+        return self.values.get("current_rpm").copied().unwrap_or(0);
     }
 
     // Something like that to update the new value at the Key!
-    pub const fn update_target(&self, new_target:i32){
-        &self.values["old_rpm_target"] = &self.values["target_rpm"];
-        &self.values["target_rpm"] = new_target;
+    pub fn update_target(mut self, new_target:i32){
+        self.values.insert(String::from("old_rpm_target"), self.values.get("target_rpm").copied().unwrap_or(0));
+        self.values.insert(String::from("target_rpm"), new_target);
     }
 
-    pub const fn update_current(&self, current_rpm : i32){
-        &self.values["current_rpm"] = current_rpm;
+    pub fn update_current(mut self, current_rpm : i32){
+        self.values.insert(String::from("target_rpm"), current_rpm);
     }
 }

@@ -19,6 +19,8 @@ Struct for Filtering & Adjusting:
 
 mod components;
 mod motor_driver;
-mod sensor;
+mod Sensor;
 
-fn main() {}
+fn main() {
+
+}
