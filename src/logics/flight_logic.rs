@@ -16,68 +16,74 @@ Functions:
 */
 
 use crate::components::FlightPatterns;
+use crate::motor_driver::engines::Engine;
 
-fn matchPattern(pattern:FlightPatterns){
+fn match_pattern(pattern:FlightPatterns, engine_ref:&[Engine; 4]){
     match pattern{
-        FlightPatterns::YawLeft => rotateLeft(),
-        FlightPatterns::YawRight => rotateRight(),
-        FlightPatterns::PitchFront => leanForward(),
-        FlightPatterns::PitchBack => leanBackward(),
-        FlightPatterns::RollLeft => leanLeft(),
-        FlightPatterns::RollRight => leanRight(),
-        FlightPatterns::Up => upwards(),
-        FlightPatterns::Down => downwards(),
+        FlightPatterns::PitchFront => lean_front(engine_ref),
+        FlightPatterns::PitchBack => lean_back(engine_ref),
+        FlightPatterns::RollLeft=> lean_left(engine_ref),
+        FlightPatterns::RollRight => lean_right(engine_ref),
+        FlightPatterns::YawLeft => rotate_left(engine_ref),
+        FlightPatterns::YawRight => rotate_right(engine_ref),
+        FlightPatterns::Up => up(engine_ref),
+        FlightPatterns::Down => down(engine_ref),
         _ => (),
-    }
+    }    
 }
-
 /* 
 Functions to rotate to either side. left, right
 -> 
 */
-
-fn rotateLeft(){
-
+fn rotate(engine_ref:&[Engine; 4]){
+    /*
+    Adjust the Speeds of the Engines, which are turning in the same directions
+    */
 }
-
-fn rotateRight(){
-
+fn rotate_left(engine_ref:&[Engine; 4]){
+    rotate(engine_ref);
+}
+fn rotate_right(engine_ref:&[Engine; 4]){
+    rotate(engine_ref);
 }
 
 /* 
 Functions to lean to either side. front, back, left, right
 -> MAX degree of leaning: 45°
 */
-
-fn leanForward(){
-
+fn leaning(engine_ref:&[Engine; 4]){
+    /*
+    Adjust the Engines to the opposite/same site of the desired leaning side 
+    */
 }
 
-fn leanBackward(){
-
+fn lean_front(engine_ref:&[Engine; 4]){
+    leaning(engine_ref)
+}
+fn lean_back(engine_ref:&[Engine; 4]){
+    leaning(engine_ref);
 }
 
-fn leanLeft(){
-
+fn lean_right(engine_ref:&[Engine; 4]){
+    leaning(engine_ref);
 }
-
-fn leanRight(){
-
+fn lean_left(engine_ref:&[Engine; 4]){
+    leaning(engine_ref);
 }
-
 /*
-Functions to fly up or down!
+Function to fly up or down!
 -> Float32 to adjust speeds to nearest int ? 
 */
-fn height_manipulations(increaseby:f32){
-
+fn height_manipulations(engine_ref:&[Engine; 4]){
+ /*
+ Adjsut all speeds!
+ */
 }
 
-fn upwards(value:f32){
- // Increase all Engine speeds by the same amount, if necessary adjust all to hover!
- height_manipulations(value);
+fn up(engine_ref:&[Engine; 4]){
+    height_manipulations(engine_ref);
 }
 
-fn downwards(){
- // Reduce all Engine speeds by the same amount, if necessary adjust all to hover!
+fn down(engine_ref:&[Engine; 4]){
+    height_manipulations(engine_ref);
 }
