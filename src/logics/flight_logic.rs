@@ -20,17 +20,21 @@ use crate::components::FlightPatterns;
 fn matchPattern(pattern:FlightPatterns){
     match pattern{
         FlightPatterns::YawLeft => rotateLeft(),
+        FlightPatterns::YawRight => rotateRight(),
+        FlightPatterns::PitchFront => leanForward(),
+        FlightPatterns::PitchBack => leanBackward(),
+        FlightPatterns::RollLeft => leanLeft(),
+        FlightPatterns::RollRight => leanRight(),
+        FlightPatterns::Up => upwards(),
+        FlightPatterns::Down => downwards(),
         _ => (),
     }
 }
 
 /* 
 Functions to rotate to either side. left, right
+-> 
 */
-
-fn rotate(){
-
-}
 
 fn rotateLeft(){
 
@@ -42,11 +46,8 @@ fn rotateRight(){
 
 /* 
 Functions to lean to either side. front, back, left, right
+-> MAX degree of leaning: 45°
 */
-
-fn leaning(){
-
-}
 
 fn leanForward(){
 
@@ -66,16 +67,17 @@ fn leanRight(){
 
 /*
 Functions to fly up or down!
+-> Float32 to adjust speeds to nearest int ? 
 */
-
-fn zMovement(){
+fn height_manipulations(increaseby:f32){
 
 }
 
-fn upwards(){
-
+fn upwards(value:f32){
+ // Increase all Engine speeds by the same amount, if necessary adjust all to hover!
+ height_manipulations(value);
 }
 
 fn downwards(){
-
+ // Reduce all Engine speeds by the same amount, if necessary adjust all to hover!
 }
