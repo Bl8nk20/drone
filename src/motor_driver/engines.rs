@@ -27,7 +27,7 @@ impl Engine{
         return Self{ pinout:pins, orientation: engine_orientation, values:value_dict};
     }
     // returning the current rpm-parameters
-    pub fn get_values(&self) -> &i32{
+    pub fn get_current(&self) -> &i32{
         return self.values.get("current_rpm").unwrap_or(&0);
     }
 
