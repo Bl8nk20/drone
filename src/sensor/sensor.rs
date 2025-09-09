@@ -27,12 +27,12 @@ use crate::components::SensorType;
 pub struct Sensor{
     pinout:[String; 5],
     typ: SensorType,
-    last_val: f32,
-    current_val:f32,
-    timestamp: SystemTime,
-    is_active: bool,
-    update_rate_hz: f32,
-    callibrated:bool
+    last_val: Option<f32>,
+    current_val:Option<f32>,
+    timestamp: Option<SystemTime>,
+    is_active: Option<bool>,
+    update_rate_hz: Option<f32>,
+    callibrated:Option<bool>
 }
 impl Sensor{
 
