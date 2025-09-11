@@ -12,13 +12,17 @@ Struct for Engine:
  * update_current() -> updating the current_value
  */
 
-use std::collections::HashMap;
+ // values[0] = current_rpm
+ // values[1] = old_target
+ // values[2] = new_target
+ 
+
 use crate::components::Orientation;
 
 pub struct Engine{
     pinout:[String; 5],
     orientation: Orientation,
-    values: Option<HashMap<String, i32>>,
+    values: Option<[i32; 3]>,
 }
 impl Engine{
     // build a new Engine- Object
@@ -28,7 +32,7 @@ impl Engine{
     // returning the current rpm-parameters
     pub fn get_current(&self) -> &i32{
         //return self.values.get().expect("current")
-        return None;
+        return &3;
     }
 
     pub fn get_pins(&self) -> &[String; 5] {
@@ -37,11 +41,11 @@ impl Engine{
 
     // Something like that to update the new value at the Key!
     pub fn update_target(mut self, new_target:i32){
-        self.values.insert(String::from("old_rpm_target"), self.values.get("target_rpm").copied().unwrap_or(0));
-        self.values.insert(String::from("target_rpm"), new_target);
+        self.values[1].replace(self.values[2]);
+        self.values[2].replace(new_target);
     }
 
     fn update_current(mut self, current_rpm : i32){
-        self.values.insert(String::from("target_rpm"), current_rpm);
+        self.values[0] = current_rpm;
     }
 }
