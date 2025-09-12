@@ -41,11 +41,18 @@ impl Engine{
 
     // Something like that to update the new value at the Key!
     pub fn update_target(mut self, new_target:i32){
-        self.values[1].replace(self.values[2]);
+        self.values.get(0);
         self.values[2].replace(new_target);
     }
 
-    fn update_current(mut self, current_rpm : i32){
+    pub fn update_current(mut self, current_rpm : i32){
         self.values[0] = current_rpm;
+    }
+
+    fn access_array(opt: &mut Option<[i32; 3]>, index:usize, new_value:i32){
+        if let Some(arr) = opt.as_mut(){
+            arr[index] = new_value;
+        }
+        
     }
 }
