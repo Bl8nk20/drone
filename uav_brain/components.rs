@@ -25,15 +25,3 @@ pub enum Orientation{
     BackLeft,
     BackRight
 }
-
-#[derive(Debug)]
-pub enum FlightPatterns{
-    YawLeft,     // RotateLeft
-    YawRight,    // RotateRight
-    PitchFront,  // Forward
-    PitchBack,   // Backwards
-    RollLeft,    // Left
-    RollRight,   // Right
-    Up,          // Upwards
-    Down         // Downwards
-}
