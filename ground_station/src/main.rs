@@ -12,7 +12,7 @@ Things the Ground Station should receive:
 
 Other Tasks for the Ground Station:
 - Being a Interface for the UAV and the Human controlling it
--> Visible appealing, NO Terminal style view, maybe even a GUI ?!
+-> Visible appealing, NO Terminal style view, maybe even a GUI ?! -> Iced as the GUI Lib !
 
 Features to consider:
 Peer-to-Peer connection for UAV and Ground Station
