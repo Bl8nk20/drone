@@ -1,5 +1,3 @@
-use std::time::SystemTime;
-
 /*
 Structs for Sensors (IMU, Gyro, GPS, Baro?)
  Varibales:
@@ -21,8 +19,9 @@ Structs for Sensors (IMU, Gyro, GPS, Baro?)
  * deactivate() -> switch off the sensor
  * callibrate() -> callibrating the sensor
 */
-use crate::components::SensorType;
 
+use std::time::SystemTime;
+use crate::components::SensorType;
 
 pub struct Sensor{
     pinout:[String; 5],
@@ -35,5 +34,30 @@ pub struct Sensor{
     callibrated:Option<bool>
 }
 impl Sensor{
+    pub fn new(pinout:[String; 5], typ:SensorType) -> Self {
+        Self{
+            pinout:pinout,
+            typ:typ,
+            last_val:None,
+            current_val:None,
+            timestamp:None,
+            is_active:None,
+            update_rate_hz:None,
+            callibrated:None}
+    }
+}
 
+
+#[cfg(test)]
+mod tests {
+    // Note this useful idiom: importing names from outer (for mod tests) scope.
+    use super::*;
+
+    #[test]
+    fn test_create_new() {
+    }
+
+    #[test]
+    fn test_bad_add() { 
+    }
 }

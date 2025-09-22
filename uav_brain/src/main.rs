@@ -11,6 +11,12 @@ Things the UAV should be able to do:
 - Read Sensor Values at relative speeds
 - Automatically land when a Specific time is reached ?!
 */
- fn main() {
+
+mod components;
+mod sensor_builder;
+mod motor_driver;
+mod logics;
+
+fn main() {
     println!("Hello, world!");
 }

@@ -9,7 +9,7 @@ Enum for flight-patterns =
 
 */
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum SensorType{
     Gyroscope,
     Accelerometer,
@@ -18,7 +18,7 @@ pub enum SensorType{
     Magnetometer
 } 
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum Orientation{
     FrontLeft,
     FrontRight,
