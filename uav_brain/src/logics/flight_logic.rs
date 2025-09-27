@@ -15,19 +15,21 @@ Functions:
 * case Matching to call Behaviour ! 
 */
 
-use crate::components::FlightPatterns;
+use shared::FlightPatterns;
+
+use crate::shared::FlightPatterns;
 use crate::motor_driver::engines::Engine;
 
 fn match_pattern(pattern:FlightPatterns, engine_ref:&[Engine; 4]){
     match pattern{
-        FlightPatterns::PitchFront => lean_front(engine_ref),
-        FlightPatterns::PitchBack => lean_back(engine_ref),
-        FlightPatterns::RollLeft=> lean_left(engine_ref),
-        FlightPatterns::RollRight => lean_right(engine_ref),
-        FlightPatterns::YawLeft => rotate_left(engine_ref),
-        FlightPatterns::YawRight => rotate_right(engine_ref),
-        FlightPatterns::Up => up(engine_ref),
-        FlightPatterns::Down => down(engine_ref),
+        FlightPatterns::PitchFront => leaning(engine_ref, FlightPatterns::PitchFront),
+        FlightPatterns::PitchBack => leaning(engine_ref, FlightPatterns::PitchBack),
+        FlightPatterns::RollLeft=> leaning(engine_ref, FlightPatterns::RollLeft),
+        FlightPatterns::RollRight => leaning(engine_ref, FlightPatterns::RollRight),
+        FlightPatterns::YawLeft => rotate(engine_ref, FlightPatterns::YawLeft),
+        FlightPatterns::YawRight => rotate(engine_ref, FlightPatterns::YawRight),
+        FlightPatterns::Up => height_manipulations(engine_ref, FlightPatterns::Up),
+        FlightPatterns::Down => height_manipulations(engine_ref, FlightPatterns::Down),
         _ => (),
     }    
 }
@@ -35,55 +37,45 @@ fn match_pattern(pattern:FlightPatterns, engine_ref:&[Engine; 4]){
 Functions to rotate to either side. left, right
 -> 
 */
-fn rotate(engine_ref:&[Engine; 4]){
+fn rotate(engine_ref:&[Engine; 4], pattern: FlightPatterns){
     /*
     Adjust the Speeds of the Engines, which are turning in the same directions
     */
-}
-fn rotate_left(engine_ref:&[Engine; 4]){
-    rotate(engine_ref);
-}
-fn rotate_right(engine_ref:&[Engine; 4]){
-    rotate(engine_ref);
+    match  pattern{
+        FlightPatterns::YawLeft => ,
+        FlightPatterns::YawRight => rotate(engine_ref),
+        _ => (),
+    };
 }
 
 /* 
 Functions to lean to either side. front, back, left, right
 -> MAX degree of leaning: 45°
 */
-fn leaning(engine_ref:&[Engine; 4]){
+fn leaning(engine_ref:&[Engine; 4], pattern: FlightPatterns){
     /*
     Adjust the Engines to the opposite/same site of the desired leaning side 
     */
+    match pattern{
+        FlightPatterns::PitchFront => leaning(engine_ref),
+        FlightPatterns::PitchBack => leaning(engine_ref),
+        FlightPatterns::RollLeft=> leaning(engine_ref),
+        FlightPatterns::RollRight => leaning(engine_ref),
+        _ => (),
+    }
 }
 
-fn lean_front(engine_ref:&[Engine; 4]){
-    leaning(engine_ref)
-}
-fn lean_back(engine_ref:&[Engine; 4]){
-    leaning(engine_ref);
-}
-
-fn lean_right(engine_ref:&[Engine; 4]){
-    leaning(engine_ref);
-}
-fn lean_left(engine_ref:&[Engine; 4]){
-    leaning(engine_ref);
-}
 /*
 Function to fly up or down!
 -> Float32 to adjust speeds to nearest int ? 
 */
-fn height_manipulations(engine_ref:&[Engine; 4]){
- /*
- Adjsut all speeds!
- */
-}
-
-fn up(engine_ref:&[Engine; 4]){
-    height_manipulations(engine_ref);
-}
-
-fn down(engine_ref:&[Engine; 4]){
-    height_manipulations(engine_ref);
+fn height_manipulations(engine_ref:&[Engine; 4], pattern: FlightPatterns){
+    /*
+    Adjsut all speeds!
+    */
+    match pattern {
+        FlightPatterns::Down => (),
+        FlightPatterns::Up => (),
+        _ => (),
+    }
 }
