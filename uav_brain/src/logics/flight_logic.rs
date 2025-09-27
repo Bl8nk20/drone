@@ -42,8 +42,8 @@ fn rotate(engine_ref:&[Engine; 4], pattern: FlightPatterns){
     Adjust the Speeds of the Engines, which are turning in the same directions
     */
     match  pattern{
-        FlightPatterns::YawLeft => ,
-        FlightPatterns::YawRight => rotate(engine_ref),
+        FlightPatterns::YawLeft => (),
+        FlightPatterns::YawRight => (),
         _ => (),
     };
 }
@@ -57,10 +57,10 @@ fn leaning(engine_ref:&[Engine; 4], pattern: FlightPatterns){
     Adjust the Engines to the opposite/same site of the desired leaning side 
     */
     match pattern{
-        FlightPatterns::PitchFront => leaning(engine_ref),
-        FlightPatterns::PitchBack => leaning(engine_ref),
-        FlightPatterns::RollLeft=> leaning(engine_ref),
-        FlightPatterns::RollRight => leaning(engine_ref),
+        FlightPatterns::PitchFront => (),
+        FlightPatterns::PitchBack => (),
+        FlightPatterns::RollLeft=> (),
+        FlightPatterns::RollRight => (),
         _ => (),
     }
 }
