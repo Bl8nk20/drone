@@ -31,12 +31,7 @@ impl Engine{
     }
     // returning the current rpm-parameters
     pub fn get_current(&self) -> &i32{
-<<<<<<< HEAD:src/motor_driver/engines.rs
-        return self.values.get("current_rpm").unwrap_or(&0);
-=======
-        //return self.values.get().expect("current")
         return &3;
->>>>>>> main:uav_brain/motor_driver/engines.rs
     }
 
     pub fn get_pins(&self) -> &[String; 5] {
