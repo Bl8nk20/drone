@@ -24,8 +24,8 @@ pub fn match_pattern(pattern:FlightPatterns, engine_ref:&[Engine; 4]){
     match pattern{
         FlightPatterns::PitchFront => pitch(engine_ref, true),
         FlightPatterns::PitchBack => pitch(engine_ref, false),
-        FlightPatterns::RollLeft=> roll(engine_ref, FlightPatterns::RollLeft),
-        FlightPatterns::RollRight => roll(engine_ref, FlightPatterns::RollRight),
+        FlightPatterns::RollLeft=> roll(engine_ref, true),
+        FlightPatterns::RollRight => roll(engine_ref, false),
         FlightPatterns::YawLeft => yaw(engine_ref, FlightPatterns::YawLeft),
         FlightPatterns::YawRight => yaw(engine_ref, FlightPatterns::YawRight),
         FlightPatterns::Up => height(engine_ref, true),
@@ -59,9 +59,32 @@ fn pitch(engines:&mut [Engine;4], forward:bool){
     }
 }
 
-fn roll(engines:&mut [Engine;4], ){
-
+fn adjust_left(eng:&mut Engine, left:bool, delta:i32){
+    if let Some(curr) = eng.get_current() {
+        eng.update_target(curr + if left { -delta } else { delta });
+    }
 }
+
+fn adjust_right(eng:&mut Engine, left:bool, delta:i32){
+    if let Some(curr) = eng.get_current() {
+        eng.update_target(curr + if left { delta } else { -delta });
+    }            
+}
+
+fn match_roll(eng:&mut Engine, left:bool, delta:i32){
+    match eng.orientation {
+            Orientation::FrontLeft | Orientation::BackLeft => adjust_left(eng, left, delta),
+            Orientation::FrontRight | Orientation::BackRight => adjust_right(eng, left, delta),
+    }
+}
+
+fn roll(engines:&mut [Engine;4], left:bool){
+    let delta = 100;
+    for eng in engines.iter_mut() {
+        match_roll(eng, left, delta);
+    }
+}
+
 fn yaw(engines:&mut [Engine;4], ){
 
 }
