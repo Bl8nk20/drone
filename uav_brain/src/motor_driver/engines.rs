@@ -19,10 +19,17 @@ Struct for Engine:
 
 use crate::components::Orientation;
 
+#[derive(Debug, Clone, Copy)]
+pub struct EngineValues{
+    pub last: i32,
+    pub current: i32,
+    pub target: i32,
+}
+
 pub struct Engine{
     pinout:[String; 5],
     orientation: Orientation,
-    values: Option<[i32; 3]>,
+    values: Option<EngineValues>,
 }
 impl Engine{
     // build a new Engine- Object
@@ -31,20 +38,38 @@ impl Engine{
     }
     // returning the current rpm-parameters
     pub fn get_current(&self) -> &i32{
-        return &3;
+        return self.values.map(|v| v.current);
     }
 
     pub fn get_pins(&self) -> &[String; 5] {
         return  &self.pinout;
     }
 
+    pub fn is_active(&self) {
+        self.values.is_some()
+    }
+
+    pub fn activate(&mut self, start_rpm:i32){
+        self.values = Some(EngineValues { last: 0,
+            current: start_rpm,
+            target: start_rpm });
+    }
+
+    pub fn deactivate(&mut self) {
+        self.values = None;
+    }
+
     // Something like that to update the new value at the Key!
-    pub fn update_target(self, new_target:i32){
-        self.values.unwrap_or([0,0,0])[0] = self.values.unwrap()[2];
-        self.values.unwrap_or([0,0,0])[2] = new_target;
+    pub fn update_target(&mut self, new_target:i32){
+        if let Some(v) = &mut self.values{
+            v.last = v.target;
+            v.target = new_target;
+        }    
     }
 
     pub fn update_current(mut self, current_rpm : i32){
-        self.values.unwrap_or([0,0,0])[2] = current_rpm;
+        if let Some(v) = &mut self.values{
+            v.current = current_rpm;
+        }
     }
 }
