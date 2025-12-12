@@ -10,7 +10,7 @@ prepare:
 	rm -rf build
 	mkdir build
 
-compile: install
+compile:
 	cd build && cmake -S .. -B . 
 
 testing:
