@@ -1,4 +1,7 @@
 add_subdirectory(Engine)
 add_subdirectory(Sensor)
+add_subdirectory(SensorFusion)
+add_subdirectory(FlightModes)
 add_subdirectory(Filtering)
+add_subdirectory(FailSafe)
 add_subdirectory(Controls)
