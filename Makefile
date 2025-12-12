@@ -13,8 +13,8 @@ prepare:
 compile:
 	cd build && cmake -S .. -B . 
 
-testing:
-	make compile && cd build/tests && ./unit_tests
+testing: compile 
+	cd build/tests && ./unit_tests
 
 conan_d:
 	rm -rf build
