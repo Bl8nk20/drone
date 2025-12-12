@@ -1,0 +1,2 @@
+/home/moritz/source/repos/drone/build/CMakeFiles/edit_cache.dir
+/home/moritz/source/repos/drone/build/CMakeFiles/rebuild_cache.dir

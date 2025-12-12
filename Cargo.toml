@@ -1,6 +1,0 @@
-[workspace]
-members = [
-    "shared",
-    "uav_brain",
-    "ground_station"
-]
