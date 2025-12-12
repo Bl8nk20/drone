@@ -1,3 +1,4 @@
+add_subdirectory(logging)
 add_subdirectory(enum)
-add_subdirectory(Coordinates)
+add_subdirectory(coordinates)
 add_subdirectory(communication)
