@@ -1,0 +1,3 @@
+add_subdirectory(shared)
+add_subdirectory(uav)
+add_subdirectory(ground_station)
