@@ -4,10 +4,14 @@ namespace UAV::Engine
 {
     class AabstractEngine{
     private:
-        static constexpr double speedRPM = 0.0;
+        static double speedRPM;
     protected:
-        static constexpr void setSpeed(const double& rpm){
+        constexpr void setSpeed(const double& rpm){
             this->speedRPM = rpm;
+        };
+
+        constexpr double getSpeed(){
+            return this->speedRPM;
         };
     public:
         AabstractEngine() = default;
