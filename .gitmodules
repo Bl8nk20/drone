@@ -1,3 +1,20 @@
 [submodule "external/json"]
 	path = external/json
 	url = https://github.com/nlohmann/json
+
+[submodule "external/fmt"]
+	path = external/fmt
+	url = https://github.com/fmtlib/fmt
+
+[submodule "external/spdlog"]
+	path = external/spdlog
+	url = https://github.com/gabime/spdlog
+
+[submodule "external/catch2"]
+	path = external/catch2
+	url = https://github.com/catchorg/Catch2
+
+[submodule "external/cxxopts"]
+	path = external/cxxopts
+	url = https://github.com/jarro2783/cxxopts
+
